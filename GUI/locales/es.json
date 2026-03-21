@@ -1,0 +1,24 @@
+{
+    "app_photos": "Fotos",
+    "app_task_manager": "Administrador de tareas",
+    "app_settings": "Configuración",
+    "app_terminal": "terminal",
+    "app_store": "Tienda",
+    "app_calendar": "Calendario",
+    "app_clock": "reloj",
+
+    "action_open": "Abrir",
+    "action_close": "Cerrar",
+    "action_save": "Guardar",
+    "action_cancel": "Cancelar",
+    "action_exit": "Salir",
+
+    "staus_ruuning": "En ejecución",
+    "status_stopped": "Detenido",
+
+    "label_language": "Idioma",
+    "label_theme": "Tema",
+    "label_live_mode": "modo live",
+
+    "msg_welcome": "bienvenido a Cocos OS"
+}

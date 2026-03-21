@@ -1,0 +1,7 @@
+{
+    "action_open": "open",
+    "action_close": "Close",
+    "action_save": "save",
+    "action_cancel": "Cancel",
+    "action_exit": "exit"
+}

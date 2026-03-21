@@ -1,0 +1,9 @@
+void app_notepad_init(void);
+void app_calculator_init(void);
+void app_calendar_init(void);
+void app_settings_init(void);
+void app_file_manager_init(void);
+void app_social_init(void);
+void app_clock_init(void);
+void app_terminal_init(void);
+void app_store_init(void);

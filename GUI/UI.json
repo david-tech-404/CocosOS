@@ -1,0 +1,74 @@
+{
+  "meta": {
+    "name": "Cocos Desktop",
+    "version": "build 1.0 alfa"
+  },
+  "color": {
+    "background": "#1E1E1E",
+    "panel": "#2C2C2C",
+    "window": "#3C3C3C",
+    "accent": "#E95420",
+    "text_secondary": "#B0B0B0"
+  },
+  "font": {
+    "family": "Inter",
+    "regular": "GUI/fonts/inter font/Inter-Regular.ttf",
+    "bold": "GUI/fonts/inter font/InterDisplay-bold.ttf",
+    "size": 14
+  },
+  "font_mono": {
+    "family": "JetBrains Mono",
+    "file": "fonts/JetBrainsMonoNL/JetBrainsMonoNL-Regular.ttf",
+    "size": 13
+  },
+  "panel": {
+    "height": 48,
+    "position": "left",
+    "opacity": 0.95
+  },
+  "icons": {
+    "size": 32,
+    "padding": 8
+  },
+  "window": {
+    "border_radius": 6,
+    "title_bar_color": "#1E1E1E",
+    "title_bar_text_color": "#FFFFFF",
+    "button_color": "#E95420",
+    "button_hover_color": "#FB8C00"
+  },
+  "animations": {
+    "enabled": true,
+    "speed": "fast"
+  }, 
+  "menu": {
+    "enabled": true,
+    "position": "left"
+  },
+  "notidications": {
+    "enabled": true,
+    "position": "top-right"
+  },
+  "dock": {
+    "enabled": true,
+    "position": "bottow",
+    "size": 48
+  },
+  "wallpaper": {
+    "path": "/assets/default.jpg",
+  "mode": "fill"  
+  },
+  "cursor": {
+    "path": "/assets/cursor.png",
+    "size": 24,
+    "hotspot_x": 0,
+    "hotspot_y": 0,
+    "shadow": true,
+    "shadow_offset": 2,
+    "smooth": true,
+    "animation": {
+      "enabled": true,
+      "spped": "fast"
+    }
+  }
+}

@@ -6,7 +6,7 @@ sistema operativo experimental y minimalista.
 
 cocos os es un sistema operativo eperimental enfocado en la simplicidad, modularidad y control total del sistema
 
-está diseñado como un labortorio de ideas como apps integradas, GUI inspirada en el unity de canonical o sea inspirada en ubuntu unity, y scripting en lua 5.4.
+está diseñado como un labortorio de ideas como apps integradas, GUI como gnome shell con y scripting en lua 5.4.
 
 # estado de Cocos OS
 
@@ -34,7 +34,7 @@ proyecto open-source mantenido actualmente por una sola persona
 
 reddit: u/Daviddandadan
 
-discord: https://discord.gg/2P9fVeQsPY
+discord: https://discord.gg/mEZwx7rNbn
 
 # Contrbuciones
 
@@ -44,16 +44,14 @@ pero caundo el proyecto se estabilice bien se publicarán reglas claras.
 
 # licencia
 
-el núcleo del sistema (como el /kernel y /core)
+el núcleo del sistema (como el /kernel y /core /boot, etc)
 estan licenciados bajo la licencia de GPLv3.
 
 Las APIs, el UI/GUI o también conocido como interfaz gráfica y las APPs están licenciadas bajo MIT.
 
 # cuándo estará listo
 
-![no lo se](https://camo.githubusercontent.com/6e0ea5f3a6317e3d72ac61edb54dc15b7bf3832512207943603547a8a9c52863/68747470733a2f2f692e696d6775722e636f6d2f36786662507a732e676966)
-
-ni idea y peor que el soy el cerador de Cocos OS
+ya esta listo el codigo por eso es que esta en github
 
 # quién es david
 

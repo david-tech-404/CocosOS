@@ -60,6 +60,11 @@ es el que escribió todo esto y el que hizo todo el sistema de Cocos OS
 
 **simplemente me pueden llamarme david tech o solo david**
 
+# un meme de mr robot
+
+![My Honest Reaction](https://preview.redd.it/my-honest-reaction-v0-opc49dq6851f1.jpeg?width=640&crop=smart&auto=webp&s=d51b43c1ff3f40d5688c9c6d963d3290cb08381e)
+
+
 # copyright
 
 © 2025-2026 David

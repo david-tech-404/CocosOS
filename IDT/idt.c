@@ -1,5 +1,7 @@
 #include <stdint.h>
 
+#define IDT_ENTRIES 256
+
 struct idt_entry {
     uint16_t base_low;
     uint16_t selector;

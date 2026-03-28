@@ -1,5 +1,5 @@
 #include "terminal.h"
-#include  "Display.h"
+#include "Display.h"
 #include "keyboard.h"
 
 char input_buffer[256];
@@ -12,8 +12,7 @@ void terminal_init() {
 }
 
 void terminal_write(const char *str) {
-    while (*str)
-    {
+    while (*str) {
         display_putc(*str);
         str++;
     }
@@ -25,21 +24,16 @@ void terminal_prompt() {
 }
 
 void terminal_input(char c) {
-
     if (c == '\n') {
-input_buffer[input_index] = 0;
-
+        input_buffer[input_index] = 0;
         terminal_write("\n");
-
         input_index = 0;
-
-        terminal_prompt();;
-
+        terminal_prompt();
         return;
     }
 
     if (input_index < 255) {
-input_buffer[input_index++] = c;
+        input_buffer[input_index++] = c;
         display_putc(c);
     }
 }

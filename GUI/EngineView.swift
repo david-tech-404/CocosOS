@@ -1,15 +1,12 @@
 import SwiftUI
 
 struct EngineView: View {
-    let ui = loadUI(from: "ui.json")
+    let ui = loadUI(from: "UI.json")
 
     var body: some View {
         VStack {
-
-ForEach(ui.elements) {
-el in translate(el)    
-
-
+            ForEach(ui.elements) { el in
+                translate(el)
             }
         }
     }

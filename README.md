@@ -1,75 +1,65 @@
-# cocos os
+# Cocos OS
 
-sistema operativo experimental y minimalista.
+Sistema operativo experimental y minimalista.
 
-# que es Cocos OS
+## Qué es Cocos OS
 
-cocos os es un sistema operativo eperimental enfocado en la simplicidad, modularidad y control total del sistema
+Cocos OS es un sistema operativo experimental enfocado en la simplicidad, modularidad y control total del sistema.
 
-está diseñado como un labortorio de ideas como apps integradas, GUI como gnome shell con y scripting en lua 5.4.
+Está diseñado como un laboratorio de ideas como apps integradas, GUI como Gnome Shell con scripting en Lua 5.4.
 
-# estado de Cocos OS
+## Estado de Cocos OS
 
-estado: en desrrollo no tan activo, no es un sistema listo para la producción, esta en beta o alfa
+Estado: en desarrollo no tan activo, no es un sistema listo para la producción, está en beta o alfa.
 
-# tecnologias
+## Tecnologías
 
-las tecnologias usados en cocos os no nada raro
+Las tecnologías usadas en Cocos OS no son nada raras:
 
-lua para las apps y el 100% de lógica
+- Lua para las apps y el 100% de lógica
+- C para el motor_Cocos y el kernel de Cocos OS, los drivers con ASM
+- ASM para el switch.asm, el irq0, un poco del IDT, el boot y bootstrap y los drivers con C
+- JSON para la configuración y la IA de Shellby
+- Python y Swift para la lógica de Shellby
 
-C para el motor_Cocos y el kernel de Cocos OS, los drivers con asm
+## El autor y mantenimiento
 
-ASM para el switch.asm y el irq0 y un poco del idt y el boot y bootstrap y los drivers con C
+Mantenedor principal: David Fernández (insha'Allah corralejo)
 
-JSON para la configuración y la IA de shellby
+Proyecto open-source mantenido actualmente por una sola persona.
 
-python y swfit para la lógica de shellby
+- Reddit: u/Daviddandadan
+- Discord: https://discord.gg/mEZwx7rNbn
 
-# el autor y mantenimiento
+## Contribuciones
 
-mantendor principal: david fernández inasha allah corralejo
+Las contribuciones no están abiertas aún, pero cuando el proyecto se estabilice bien se publicarán reglas claras.
 
-proyecto open-source mantenido actualmente por una sola persona
+## Licencia
 
-reddit: u/Daviddandadan
-
-discord: https://discord.gg/mEZwx7rNbn
-
-# Contrbuciones
-
-las contribuciones no están abiertas aún
-
-pero caundo el proyecto se estabilice bien se publicarán reglas claras.
-
-# licencia
-
-el núcleo del sistema (como el /kernel y /core /boot, etc)
-estan licenciados bajo la licencia de GPLv3.
+El núcleo del sistema (como el /kernel, /core, /boot, etc) están licenciados bajo la licencia de GPLv3.
 
 Las APIs, el UI/GUI o también conocido como interfaz gráfica y las APPs están licenciadas bajo MIT.
 
-# cuándo estará listo
+## Cuándo estará listo
 
-ya esta listo el codigo por eso es que esta en github
+Ya está listo el código por eso es que está en GitHub.
 
-# quién es david
+## Quién es David
 
-david (o sea yo)
-es el que escribió todo esto y el que hizo todo el sistema de Cocos OS
+David (o sea yo) es el que escribió todo esto y el que hizo todo el sistema de Cocos OS.
 
-**simplemente me pueden llamarme david tech o solo david**
+**Simplemente me pueden llamarme David Tech o solo David**
 
-# un meme de mr robot
+## Un meme de Mr. Robot
 
 ![My Honest Reaction](https://preview.redd.it/my-honest-reaction-v0-opc49dq6851f1.jpeg?width=640&crop=smart&auto=webp&s=d51b43c1ff3f40d5688c9c6d963d3290cb08381e)
 
-
-# copyright
+## Copyright
 
 © 2025-2026 David
 
-Cocos OS uses a dual-license model
+Cocos OS uses a dual-license model:
 
 - Core system: GPLv3
 - Application and UI: MIT

@@ -45,18 +45,18 @@
     "enabled": true,
     "position": "left"
   },
-  "notidications": {
+  "notifications": {
     "enabled": true,
     "position": "top-right"
   },
   "dock": {
     "enabled": true,
-    "position": "bottow",
+    "position": "bottom",
     "size": 48
   },
   "wallpaper": {
     "path": "/assets/default.jpg",
-  "mode": "fill"  
+    "mode": "fill"  
   },
   "cursor": {
     "path": "/assets/cursor.png",
@@ -68,7 +68,7 @@
     "smooth": true,
     "animation": {
       "enabled": true,
-      "spped": "fast"
+      "speed": "fast"
     }
   }
 }

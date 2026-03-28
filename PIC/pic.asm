@@ -1,5 +1,16 @@
+#include <stdint.h>
+
+#define PIC1_COMMAND 0x20
+#define PIC1_DATA 0x21
+#define PIC2_COMMAND 0xA0
+#define PIC2_DATA 0xA1
+
+#define ICW1_INIT 0x10
+#define ICW1_ICW4 0x01
+#define ICW4_8086 0x01
+
 static inline void outb(uint16_t port, uint8_t val) {
-     __asm__ volatile ("outb %0, %01" : : "a"(val), "Nd"(port));
+    __asm__ volatile ("outb %0, %1" : : "a"(val), "Nd"(port));
 }
 
 void pic_init() {

@@ -3,33 +3,24 @@ local UI_PATH = "/GUI/UI.json"
 
 local function cargarConfig()
     local f = io.open(UI_PATH, "r")
-    if not f then return{}
-    end
+    if not f then return {} end
 
-local data = f:read("*a")
-f:close()
-local ok, parsed = pcall(json.decode, data)
-return ok and parsed or {}
+    local data = f:read("*a")
+    f:close()
+    local ok, parsed = pcall(json.decode, data)
+    return ok and parsed or {}
 end
 
-local function guardarConfig()
+local function guardarConfig(config)
     local f = io.open(UI_PATH, "w")
     if f then
-
         f:write(json.encode(config))
         f:close()
     end
 end
 
 local config = cargarConfig()
-local function guardarConfig(config)
-    local f = io.open("UI.json", "w")
-    if f then
-        f:write(json.encode(config))
-        f:close()
-end
 config.tema = "MaterialDark"
 
 guardarConfig(config)
-print("configuración gurdada:", config)
-end
+print("configuración guardada:", config)

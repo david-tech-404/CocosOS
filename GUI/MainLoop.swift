@@ -2,25 +2,21 @@ final class MainLoop {
 
     static func run() {
         while true {
-            
-            switch kernelPanicBridge.poll() {
-
-                case .running: 
-                processUIEvents()
-                                    renderFrame()
-                            case .panic(let code):
-
-                        kernelPanicScreen.show(code: code)
+            switch KernelPanicBridge.poll() {
+                case .running:
+                    processUIEvents()
+                    renderFrame()
+                case .panic(let code):
+                    KernelPanicScreen.show(code: code)
             }
         }
     }
 
     private static func processUIEvents() {
+        RunLoop.current.run(mode: .default, before: Date())
+    }
 
-RunLoop.current.run(mode: .defa ult, before: Date())
-}
-
-    private static func renderFrame(){
-
+    private static func renderFrame() {
+        // Render frame logic
     }
 }

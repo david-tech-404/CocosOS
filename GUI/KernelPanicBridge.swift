@@ -1,8 +1,8 @@
 @_silgen_name("kernel_panic_state")
-var KernelPanicState: Int32
+var kernelPanicState: Int32
 
 @_silgen_name("kernel_panic_code")
-var KernelPanicCode: Int32
+var kernelPanicCode: Int32
 
 enum KernelState {
     case running
@@ -12,8 +12,8 @@ enum KernelState {
 final class KernelPanicBridge {
 
     static func poll() -> KernelState {
-        if KernelPanicState != 0 {
-return .panic(Int(KernelPanicCode))
+        if kernelPanicState != 0 {
+            return .panic(Int(kernelPanicCode))
         }
         return .running
     }

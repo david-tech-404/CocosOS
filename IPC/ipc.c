@@ -8,7 +8,7 @@ int ipc_send(const char* message) {
     if(queue.count >= MAX_MESSAGES) return -1;
 
     strncpy(queue.msg[queue.tail], message, MSG_SIZE-1);
-    queue.tail[queue.tail][MSG_SIZE-1] = '\0';
+    queue.msg[queue.tail][MSG_SIZE-1] = '\0';
     queue.tail = (queue.tail + 1) % MAX_MESSAGES;
     queue.count++;
     return 0;

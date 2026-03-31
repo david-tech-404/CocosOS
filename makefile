@@ -18,7 +18,7 @@ LD_FILE = kernel/linker.ld
 OBJ = $(C_SRC:.c=.o)
 
 KERNEL = kernel.bin
-IMAGE = os-image.bin
+IMAGE = CocosOS-image.bin
 
 ui:
 	lua GUI/ui_compiler.lua

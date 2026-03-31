@@ -1,0 +1,152 @@
+{
+  "title": "CocosOS Installer",
+  "color": {
+    "background": "#1a1a2e",
+    "accent": "#16213e",
+    "text": "#e94560",
+    "button": "#0f3460",
+    "button_hover": "#e94560"
+  },
+  "panel": {
+    "height": 600,
+    "width": 800
+  },
+  "components": [
+    {
+      "type": "label",
+      "x": 50,
+      "y": 30,
+      "text": "CocosOS Installer v1.0.0",
+      "font_size": 24,
+      "color": "#e94560"
+    },
+    {
+      "type": "label",
+      "x": 50,
+      "y": 80,
+      "text": "Welcome to CocosOS Installation",
+      "font_size": 16,
+      "color": "#ffffff"
+    },
+    {
+      "type": "label",
+      "x": 50,
+      "y": 120,
+      "text": "This installer will replace your current operating system.",
+      "font_size": 12,
+      "color": "#cccccc"
+    },
+    {
+      "type": "button",
+      "x": 50,
+      "y": 180,
+      "w": 200,
+      "h": 40,
+      "text": "Install CocosOS",
+      "action": "start_install"
+    },
+    {
+      "type": "button",
+      "x": 270,
+      "y": 180,
+      "w": 200,
+      "h": 40,
+      "text": "Advanced Options",
+      "action": "show_advanced"
+    },
+    {
+      "type": "button",
+      "x": 490,
+      "y": 180,
+      "w": 200,
+      "h": 40,
+      "text": "Exit",
+      "action": "exit"
+    },
+    {
+      "type": "label",
+      "x": 50,
+      "y": 250,
+      "text": "Detected Operating Systems:",
+      "font_size": 14,
+      "color": "#ffffff"
+    },
+    {
+      "type": "listbox",
+      "x": 50,
+      "y": 280,
+      "w": 700,
+      "h": 150,
+      "id": "os_list",
+      "items": [
+        "Windows 10 (C:\\)",
+        "Linux Ubuntu (/dev/sda1)",
+        "Unallocated Space"
+      ]
+    },
+    {
+      "type": "label",
+      "x": 50,
+      "y": 450,
+      "text": "Installation Type:",
+      "font_size": 14,
+      "color": "#ffffff"
+    },
+    {
+      "type": "radio",
+      "x": 50,
+      "y": 480,
+      "id": "install_type",
+      "options": [
+        "Replace existing OS",
+        "Dual boot",
+        "Custom partition"
+      ]
+    },
+    {
+      "type": "checkbox",
+      "x": 50,
+      "y": 550,
+      "id": "encrypt",
+      "text": "Enable disk encryption (LUKS)",
+      "checked": false
+    },
+    {
+      "type": "button",
+      "x": 50,
+      "y": 600,
+      "w": 150,
+      "h": 40,
+      "text": "Back",
+      "action": "back"
+    },
+    {
+      "type": "button",
+      "x": 600,
+      "y": 600,
+      "w": 150,
+      "h": 40,
+      "text": "Next",
+      "action": "next"
+    },
+    {
+      "type": "progress",
+      "x": 50,
+      "y": 660,
+      "w": 700,
+      "h": 20,
+      "id": "install_progress",
+      "value": 0,
+      "max": 100
+    },
+    {
+      "type": "label",
+      "x": 50,
+      "y": 690,
+      "text": "Ready to install",
+      "id": "status_label",
+      "font_size": 12,
+      "color": "#cccccc"
+    }
+  ]
+}

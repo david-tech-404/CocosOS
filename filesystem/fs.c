@@ -12,21 +12,21 @@ int fs_create(const char *name)
 {
     if (file_count >= MAX_FILES) return -1;
 
-strcpy(files[file_count].name, name)
-    files[file_count].size = 0;
+    strcpy(file[file_count].name, name);
+    file[file_count].size = 0;
 
     file_count++;
     return 0;
 }
 
 int fs_write(const char *name, const char *data) {
-    for(int i=0;i<file_coun;i++){
+    for(int i=0;i<file_count;i++){
 
-        if(strcmp(files[i].name,name)== 0){
+        if(strcmp(file[i].name,name)== 0){
 
-        static(files[i].data,data);
+            strcpy(file[i].data,data);
 
-        files[i].size=strlen(data);
+            file[i].size=strlen(data);
             return 0;
         }
     }
@@ -37,10 +37,9 @@ char* fs_read(const char *name)
 {
     for(int i=0;i<file_count;i++){
 
-if(stramp(files[i].name,name)== 0){
+        if(strcmp(file[i].name,name)== 0){
 
-    return
-files[i].data;
+            return file[i].data;
         }
     }
     return 0;

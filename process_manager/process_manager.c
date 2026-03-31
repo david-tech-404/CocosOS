@@ -5,12 +5,12 @@
 
 #define MAX_PROCESSES 10
 
-process_t process_table[MAC_PROCESSES];
+process_t process_table[MAX_PROCESSES];
 
 int process_count = 0;
 
 int create_process(void(*func)()) {
-    if(process_count >= MAX_PROCESSES) RETURN -1;
+    if(process_count >= MAX_PROCESSES) return -1;
     
     process_table[process_count].pid = process_count;
 
@@ -19,7 +19,7 @@ int create_process(void(*func)()) {
     process_table[process_count].func = func;
     
     process_count++;
-    return process_count -;
+    return process_count - 1;
 }
 
 void kill_process(int pid) {

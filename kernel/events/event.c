@@ -2,7 +2,7 @@
 
 #define EVENT_QUEUE_SIZE 64
 
-static evet_t queue[EVENT_QUEUE_SIZE];
+static event_t queue[EVENT_QUEUE_SIZE];
 
 static int head = 0;
 static int tail = 0;
@@ -12,7 +12,7 @@ void event_init() {
     tail = 0;
 }
 
-void event_pust(event_t event) {
+void event_push(event_t event) {
 
     queue[tail] = event;
 

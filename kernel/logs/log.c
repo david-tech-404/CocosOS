@@ -1,13 +1,13 @@
 #include "log.h"
 
-char log_bufer[4096];
+char log_buffer[4096];
 int log_index = 0;
 
 #define COM1 0x3F8
 
 static inline void outb(unsigned short port, unsigned char value)
 {
-    __asm__ volatile ("outb %0%1" : : "a"(value), "Nd"(port));
+    __asm__ volatile ("outb %0, %1" : : "a"(value), "Nd"(port));
 }
 
 void log_init()
@@ -24,8 +24,8 @@ void log_init()
 static int serial_ready()
 {
     unsigned char status;
-    __asm__ volatile ("inb %1%0" : "=a"(status) : "Nd"(COM1 + 5));
-        return status & 0x20; 
+    __asm__ volatile ("inb %1, %0" : "=a"(status) : "Nd"(COM1 + 5));
+    return status & 0x20; 
 }
 
 static void
@@ -37,8 +37,9 @@ serial_write_char(char c)
 
 void log_write(const char* msg)
 {
-    wrile (*msg);
+    while (*msg) {
         serial_write_char(*msg++);
+    }
 }
 
 void log_info(const char* msg)

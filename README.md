@@ -1,59 +1,82 @@
-# Cocos OS
+## What is Cocos OS?
 
-Sistema operativo experimental y minimalista.
+CocosOS is a minimalist and experimental 32-bit operating system designed to revive old computers, but I'm working on a 64-bit version and plan to upload it to another repository within a month.
 
-## Qué es Cocos OS
+It's designed as a laboratory of ideas, featuring integrated apps, a GUI like GNOME Shell with scripting in Lua 5.4.
 
-Cocos OS es un sistema operativo experimental enfocado en la simplicidad, modularidad y control total del sistema.
+## Cocos OS Status
 
-Está diseñado como un laboratorio de ideas como apps integradas, GUI como Gnome Shell con scripting en Lua 5.4.
+Status: Under development, not very active; it's not a production-ready system; it's in beta or alpha.
 
-## Estado de Cocos OS
+## Technologies
 
-Estado: en desarrollo no tan activo, no es un sistema listo para la producción, está en beta o alfa.
+The technologies used in Cocos OS are quite simple:
 
-## Tecnologías
+- Lua for apps and 100% of the logic
+- C for the Cocos_engine and the Cocos OS kernel, and ASM for drivers
+- ASM for switch.asm, irq0, some IDT, boot and bootstrap, and C for drivers
+- JSON for configuration and Shellby AI
+- Python and Swift for Shellby logic
 
-Las tecnologías usadas en Cocos OS no son nada raras:
+## The Author and Maintenance
 
-- Lua para las apps y el 100% de lógica
-- C para el motor_Cocos y el kernel de Cocos OS, los drivers con ASM
-- ASM para el switch.asm, el irq0, un poco del IDT, el boot y bootstrap y los drivers con C
-- JSON para la configuración y la IA de Shellby
-- Python y Swift para la lógica de Shellby
+Main Maintainer: David Fernández (God willing, Corralejo)
 
-## El autor y mantenimiento
-
-Mantenedor principal: David Fernández (insha'Allah corralejo)
-
-Proyecto open-source mantenido actualmente por una sola persona.
+This open-source project is currently maintained by a single person.
 
 - Reddit: u/Daviddandadan
 - Discord: https://discord.gg/mEZwx7rNbn
 
-## Contribuciones
+## Contributions
 
-Las contribuciones no están abiertas aún, pero cuando el proyecto se estabilice bien se publicarán reglas claras.
+Contributions are not yet open, but clear rules will be published once the project is well established.
 
-## Licencia
+## License
 
-El núcleo del sistema (como el /kernel, /core, /boot, etc) están licenciados bajo la licencia de GPLv3.
+The system kernel (such as /kernel, /core, /boot, etc.) is licensed under the GPLv3 license.
 
-Las APIs, el UI/GUI o también conocido como interfaz gráfica y las APPs están licenciadas bajo MIT.
+The APIs, the UI/GUI (also known as the graphical user interface), and the apps are licensed under the MIT license.
 
-## Cuándo estará listo
+## When will it be ready?
 
-Ya está listo el código por eso es que está en GitHub.
+The code is already ready, which is why it's on GitHub.
 
-## Quién es David
+## Who is David?
 
-David (o sea yo) es el que escribió todo esto y el que hizo todo el sistema de Cocos OS.
+David (that's me) is the one who wrote all of this and who created the entire Cocos OS system.
 
-**Simplemente me pueden llamarme David Tech o solo David**
+**You can just call me David Tech or just David**
 
-## Un meme de Mr. Robot
+# How to compile the code
+Prerequisites:
+**Before compiling,**  **ensure you have the following tools installed:**
 
-![My Honest Reaction](https://preview.redd.it/my-honest-reaction-v0-opc49dq6851f1.jpeg?width=640&crop=smart&auto=webp&s=d51b43c1ff3f40d5688c9c6d963d3290cb08381e)
+NASM (Assembler)
+
+GCC (i686-elf cross-compiler recommended)
+
+Binutils (ld linker)
+
+Make (Build automation)
+
+QEMU (To run the OS)
+
+On Ubuntu/Debian: sudo apt install build-essential nasm qemu-system-x86 mtools
+
+Steps:
+
+1 Run: make
+
+Wait a long or short time depending on your computer
+
+2 (Optional for running a VM in QEMU) Run: make run
+
+Done! :D
+
+# Why I started this project
+For two reasons:
+1 - For complete privacy
+2 - So that the user can have more control
 
 ## Copyright
 

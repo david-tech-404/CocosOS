@@ -1,74 +1,86 @@
 {
   "meta": {
     "name": "Cocos Desktop",
-    "version": "build 1.0 alfa"
+    "version": "2026"
   },
   "color": {
-    "background": "#1E1E1E",
-    "panel": "#2C2C2C",
-    "window": "#3C3C3C",
-    "accent": "#E95420",
-    "text_secondary": "#B0B0B0"
+    "background": "#0a0a0f",
+    "panel": "#12121a",
+    "window": "#1a1a25",
+    "accent": "#7c3aed",
+    "accent_secondary": "#6366f1",
+    "success": "#10b981",
+    "warning": "#f59e0b",
+    "danger": "#ef4444",
+    "text_primary": "#f1f5f9",
+    "text_secondary": "#94a3b8"
   },
   "font": {
     "family": "Inter",
     "regular": "GUI/fonts/inter font/Inter-Regular.ttf",
     "bold": "GUI/fonts/inter font/InterDisplay-bold.ttf",
-    "size": 14
+    "size": 15
   },
   "font_mono": {
     "family": "JetBrains Mono",
     "file": "fonts/JetBrainsMonoNL/JetBrainsMonoNL-Regular.ttf",
-    "size": 13
+    "size": 14
   },
   "panel": {
-    "height": 48,
-    "position": "left",
-    "opacity": 0.95
+    "height": 56,
+    "position": "top",
+    "opacity": 0.85,
+    "blur": 12
   },
   "icons": {
-    "size": 32,
-    "padding": 8
+    "size": 22,
+    "padding": 10
   },
   "window": {
-    "border_radius": 6,
-    "title_bar_color": "#1E1E1E",
-    "title_bar_text_color": "#FFFFFF",
-    "button_color": "#E95420",
-    "button_hover_color": "#FB8C00"
+    "border_radius": 12,
+    "shadow": 16,
+    "gap": 8,
+    "title_bar_color": "#12121a",
+    "title_bar_text_color": "#f1f5f9",
+    "button_color": "#7c3aed",
+    "button_hover_color": "#8b5cf6"
   },
   "animations": {
     "enabled": true,
-    "speed": "fast"
-  }, 
-  "menu": {
-    "enabled": true,
-    "position": "left"
+    "easing": "ease-out-cubic",
+    "duration": 180
   },
   "notifications": {
     "enabled": true,
-    "position": "top-right"
+    "position": "bottom-right",
+    "border_radius": 10,
+    "margin": 16
   },
   "dock": {
     "enabled": true,
     "position": "bottom",
-    "size": 48
+    "size": 64,
+    "magnify": true,
+    "opacity": 0.9,
+    "blur": 16
   },
   "wallpaper": {
     "path": "/assets/default.jpg",
-    "mode": "fill"  
+    "mode": "cover",
+    "darken": 0.3
   },
   "cursor": {
     "path": "/assets/cursor.png",
-    "size": 24,
-    "hotspot_x": 0,
-    "hotspot_y": 0,
+    "size": 22,
+    "hotspot_x": 2,
+    "hotspot_y": 2,
     "shadow": true,
-    "shadow_offset": 2,
-    "smooth": true,
-    "animation": {
-      "enabled": true,
-      "speed": "fast"
-    }
+    "shadow_offset": 3,
+    "smooth": true
+  },
+  "effects": {
+    "blur": true,
+    "transparency": true,
+    "rounded_corners": true
   }
 }

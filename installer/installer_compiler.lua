@@ -1,31 +1,24 @@
 local json = require("dkjson")
-
 local f = io.open("installer/installer_ui.json", "r")
 if not f then error("No se pudo abrir installer_ui.json") end
 local content = f:read("*a")
 f:close()
-
 local data = json.decode(content)
 local out = io.open("installer/InstallerUI.c", "w")
-
 out:write("#include \"InstallerUI.h\"\n\n")
-
 out:write("const char* INSTALLER_TITLE = \"" .. data.title .. "\";\n")
 out:write("const char* INSTALLER_BG = \"" .. data.color.background .. "\";\n")
 out:write("const char* INSTALLER_ACCENT = \"" .. data.color.accent .. "\";\n")
 out:write("const char* INSTALLER_TEXT = \"" .. data.color.text .. "\";\n")
 out:write("const char* INSTALLER_BUTTON = \"" .. data.color.button .. "\";\n")
 out:write("const char* INSTALLER_BUTTON_HOVER = \"" .. data.color.button_hover .. "\";\n\n")
-
 out:write("const int INSTALLER_PANEL_W = " .. data.panel.width .. ";\n")
 out:write("const int INSTALLER_PANEL_H = " .. data.panel.height .. ";\n\n")
-
 out:write("void init_installer_ui() {\n")
 out:write("    set_window_title(INSTALLER_TITLE);\n")
 out:write("    set_window_size(INSTALLER_PANEL_W, INSTALLER_PANEL_H);\n")
 out:write("    set_background_color(INSTALLER_BG);\n")
 out:write("}\n\n")
-
 if data.components then
     out:write("void render_installer_ui() {\n")
     for i = 1, #data.components do
@@ -46,7 +39,6 @@ if data.components then
     end
     out:write("}\n")
 end
-
 out:write("\nvoid handle_installer_action(const char* action) {\n")
 out:write("    if (strcmp(action, \"start_install\") == 0) {\n")
 out:write("        start_installation();\n")
@@ -60,7 +52,5 @@ out:write("    } else if (strcmp(action, \"next\") == 0) {\n")
 out:write("        go_next();\n")
 out:write("    }\n")
 out:write("}\n")
-
 out:close()
-
 print("InstallerUI.c generado exitosamente")

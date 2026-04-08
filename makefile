@@ -1,55 +1,56 @@
 CC = gcc
 AS = nasm
 LD = ld
+OBJCOPY = objcopy
 
-CFLAGS = -ffreestanding -O2 -Wall
+CFLAGS = -ffreestanding -O2 -Wall -Wextra -nostdlib -nostartfiles -I. -Ikernel -Ikernel/memory -Ikernel/drivers -Ikernel/events -Ikernel/input -Ikernel/logs -Ifilesystem -IIDT -Iinterrupts -IPIC -Itimer -Ischeduler -Iprocess_manager -IIPC -Iterminal -Ishell -Iblade -Icore -Iruntime -Iinstaller
+ASFLAGS = -f elf32
+LDFLAGS = -T kernel/linker.ld --oformat binary -m elf_i386
 
-ASFLAGS = -f bin
-
-C_SRC = $(shell find . -name "*.c")
-ASM_SRC = $(shell find . -name "*.asm")
-LUA_SRC = $(shell find . -name "*.lua")
-JSON_SRC = $(shell find . -name "*.json")
-PY_SRC = $(shell find . -name "*.py")
-RUST_SRC = $(shell find . -name "*.rs")
-SWIFT_SRC = $(shell find . -name "*.swift")
-LD_FILE = kernel/linker.ld
-
-OBJ = $(C_SRC:.c=.o)
+C_SRC = $(wildcard kernel/*.c) $(wildcard kernel/memory/*.c) $(wildcard kernel/drivers/*.c) $(wildcard kernel/events/*.c) $(wildcard kernel/input/*.c) $(wildcard kernel/logs/*.c) $(wildcard filesystem/*.c) $(wildcard IDT/*.c) $(wildcard interrupts/*.c) $(wildcard PIC/*.c) $(wildcard timer/*.c) $(wildcard scheduler/*.c) $(wildcard process_manager/*.c) $(wildcard IPC/*.c) $(wildcard terminal/*.c) $(wildcard shell/*.c) $(wildcard blade/*.c) $(wildcard core/*.c) $(wildcard runtime/*.c) $(wildcard installer/*.c)
+ASM_SRC = $(wildcard boot/*.asm) $(wildcard kernel/*.asm) $(wildcard IDT/*.asm) $(wildcard interrupts/*.asm) $(wildcard PIC/*.asm) $(wildcard scheduler/*.asm)
+OBJ = $(C_SRC:.c=.o) $(ASM_SRC:.asm=.o)
 
 KERNEL = kernel.bin
-IMAGE = CocosOS-image.bin
+BOOTLOADER = boot.bin
+IMAGE = CocosOS.img
+ISO = CocosOS.iso
 
-ui:
-	lua GUI/ui_compiler.lua
+.PHONY: all clean run run-iso iso ui tools rust swift
+
+all: $(IMAGE) $(ISO)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
+%.o: %.asm
+	@$(AS) $(ASFLAGS) $< -o $@
 
-boot.bin: boot/boot.asm
-	$(AS) $(ASFLAGS) $< -o boot.bin
+$(BOOTLOADER): boot/boot.asm
+	@$(AS) -f bin $< -o $@
+$(KERNEL): $(OBJ)
+	@$(LD) $(LDFLAGS) -o $@ $^
+$(IMAGE): $(BOOTLOADER) $(KERNEL)
+	@copy /b $(BOOTLOADER)+$(KERNEL) $@ > nul
 
-$(KERNEL): ui $(OBJ)
-	$(LD) -T $(LD_FILE) -o $(KERNEL) $(OBJ)
+$(ISO): $(IMAGE)
+	@genisoimage -b $(IMAGE) -no-emul-boot -boot-load-size 4 -boot-info-table -o $@ . 2>nul || mkisofs -b $(IMAGE) -no-emul-boot -boot-load-size 4 -boot-info-table -o $@ .
 
-$(IMAGE): boot.bin $(KERNEL)
-	cat boot.bin $(KERNEL) > $(IMAGE)
+iso: $(ISO)
+ui:
+	@lua GUI/ui_compiler.lua
+run: $(IMAGE)
+	@qemu-system-i386 -drive format=raw,file=$<
+run-iso: $(ISO)
+	@qemu-system-i386 -cdrom $< -m 512 -vga std
 
 tools:
-	python3 IA/shellby.py
-
+	@python3 IA/shellby.py
 rust:
-	cargo build --release
-
+	@cargo build --release
 swift:
-	swift build
-
-all: $(IMAGE)
-
-run:
-	qemu-system-x86_64 -drive format=raw, file=$(IMAGE)
+	@swift build
 
 clean:
-	rm -f $(OBJ) $(KERNEL) $(IMAGE) boot.bin
-
-.PHONY: all run clean ui tools rust swift
+	@-del /Q /S *.o 2>nul
+	@-del /Q $(KERNEL) $(IMAGE) $(BOOTLOADER) $(ISO) 2>nul
+	@-del /Q UI.c InstallerUI.c 2>nul

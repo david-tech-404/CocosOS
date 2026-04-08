@@ -1,13 +1,10 @@
 local input = ""
 local resultado = nil
-
 local function dibujarGUI()
     draw_panel(100, 50, 300, 400, "#1E1E1E", 0.95)
     draw_text(120, 70, "calculadora", "#FFFFFF")
-
     draw_panel(120, 100, 260, 50, "#000000", 1)
     draw_text(130, 120, input, "#FFFFFF")
-
     local botones = {
         {"7",120,170},
         {"8",180,170},
@@ -31,12 +28,10 @@ local function dibujarGUI()
         draw_text(b[2]+18, b[3]+12, b[1], "#FFFFFF")
     end
 end
-
 local function click(x, y)
     local function dentro(bx, by)
         return x>=bx and x<=bx+50 and y>=by and y<=by+40
     end
-    
     local botones = {
         {"7",120,170},
         {"8",180,170},
@@ -58,10 +53,21 @@ local function click(x, y)
     for _, b in ipairs(botones) do
         if dentro(b[2], b[3]) then
             if b[1] == "=" then
-                local f = load("return " .. input)
-                if f then
-                    resultado = tostring(f())
-                    input = resultado
+                if input and input ~= "" and not input:match("[^%d%+%-%*%/%.%(%)]") then
+                    local f = load("return " .. input)
+                    if f then
+                        local ok, res = pcall(f)
+                        if ok then
+                            resultado = tostring(res)
+                            input = resultado
+                        else
+                            input = "Error"
+                        end
+                    else
+                        input = "Error"
+                    end
+                else
+                    input = "Error"
                 end
             else
                 input = input .. b[1]
@@ -69,7 +75,6 @@ local function click(x, y)
         end
     end
 end
-
 while true do
     dibujarGUI()
     local x,y = leerclick()

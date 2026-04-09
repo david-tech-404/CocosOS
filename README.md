@@ -1,59 +1,55 @@
 # Cocos OS
 
-Sistema operativo experimental y minimalista.
+An experimental and minimalist operating system.
 
-## Qué es Cocos OS
+## What is Cocos OS?
 
-Cocos OS es un sistema operativo experimental enfocado en la simplicidad, modularidad y control total del sistema.
+Cocos OS is an experimental operating system focused on simplicity, modularity, and complete system control.
 
-Está diseñado como un laboratorio de ideas como apps integradas, GUI como Gnome Shell con scripting en Lua 5.4.
+It's designed as a laboratory of ideas, featuring integrated apps, a GUI like GNOME Shell with scripting in Lua 5.4.
 
-## Estado de Cocos OS
+## Cocos OS Status
 
-Estado: en desarrollo no tan activo, no es un sistema listo para la producción, está en beta o alfa.
+Status: Under development, not very active; it's not a production-ready system; it's in beta or alpha.
 
-## Tecnologías
+## Technologies
 
-Las tecnologías usadas en Cocos OS no son nada raras:
+The technologies used in Cocos OS are quite simple:
 
-- Lua para las apps y el 100% de lógica
-- C para el motor_Cocos y el kernel de Cocos OS, los drivers con ASM
-- ASM para el switch.asm, el irq0, un poco del IDT, el boot y bootstrap y los drivers con C
-- JSON para la configuración y la IA de Shellby
-- Python y Swift para la lógica de Shellby
+- Lua for apps and 100% of the logic
+- C for the Cocos_engine and the Cocos OS kernel, and ASM for drivers
+- ASM for switch.asm, irq0, some IDT, boot and bootstrap, and C for drivers
+- JSON for configuration and Shellby AI
+- Python and Swift for Shellby logic
 
-## El autor y mantenimiento
+## The Author and Maintenance
 
-Mantenedor principal: David Fernández (insha'Allah corralejo)
+Main Maintainer: David Fernández (God willing, Corralejo)
 
-Proyecto open-source mantenido actualmente por una sola persona.
+This open-source project is currently maintained by a single person.
 
 - Reddit: u/Daviddandadan
 - Discord: https://discord.gg/mEZwx7rNbn
 
-## Contribuciones
+## Contributions
 
-Las contribuciones no están abiertas aún, pero cuando el proyecto se estabilice bien se publicarán reglas claras.
+Contributions are not yet open, but clear rules will be published once the project is well established.
 
-## Licencia
+## License
 
-El núcleo del sistema (como el /kernel, /core, /boot, etc) están licenciados bajo la licencia de GPLv3.
+The system core (such as /kernel, /core, /boot, etc.) is licensed under the GPLv3 license.
 
-Las APIs, el UI/GUI o también conocido como interfaz gráfica y las APPs están licenciadas bajo MIT.
+The APIs, UI/GUI (also known as the graphical interface), and applications are licensed under the MIT license.
 
-## Cuándo estará listo
+## When will it be ready?
 
-Ya está listo el código por eso es que está en GitHub.
+The code is already ready, which is why it's on GitHub.
 
-## Quién es David
+## Who is David?
 
-David (o sea yo) es el que escribió todo esto y el que hizo todo el sistema de Cocos OS.
+David (that's me) is the one who wrote all of this and who created the entire Cocos OS system.
 
-**Simplemente me pueden llamarme David Tech o solo David**
-
-## Un meme de Mr. Robot
-
-![My Honest Reaction](https://preview.redd.it/my-honest-reaction-v0-opc49dq6851f1.jpeg?width=640&crop=smart&auto=webp&s=d51b43c1ff3f40d5688c9c6d963d3290cb08381e)
+**You can simply call me David Tech or just David.**
 
 ## Copyright
 

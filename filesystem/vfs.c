@@ -1,9 +1,13 @@
 #include "vfs.h"
 #include <string.h>
+#include "../kernel/memory/memory.h"
+
 static vfs_node_t *root = 0;
+
 void vfs_init() {
     root = 0;
 }
+
 static vfs_node_t* vfs_find(const char *name) {
     vfs_node_t *node = root;
     while (node) {
@@ -18,8 +22,9 @@ static vfs_node_t* vfs_find(const char *name) {
     }
     return 0;    
 }
+
 int vfs_create(const char *name) {
-    vfs_node_t *node = (vfs_node_t*)malloc(sizeof(vfs_node_t));
+    vfs_node_t *node = (vfs_node_t*)Memory_alloc(sizeof(vfs_node_t));
     if (!node) return 0;  
     int i = 0;
     while (name[i] && i < MAX_NAME - 1) {  
@@ -33,13 +38,14 @@ int vfs_create(const char *name) {
     root = node;
     return 1;
 }
+
 int vfs_write(const char *name, const uint8_t *data, uint32_t size) {
     vfs_node_t *node = vfs_find(name);
     if (!node) return 0;
     if (node->data) {
-        free(node->data);
+        Memory_free(node->data);
     }
-    node->data = (uint8_t*)malloc(size);
+    node->data = (uint8_t*)Memory_alloc(size);
     if (!node->data) {  
         node->size = 0;
         return 0;
@@ -50,6 +56,7 @@ int vfs_write(const char *name, const uint8_t *data, uint32_t size) {
     node->size = size;
     return size;
 }
+
 int vfs_read(const char *name, uint8_t *buffer, uint32_t size) {
     vfs_node_t *node = vfs_find(name);
     if (!node || !buffer) return 0;  

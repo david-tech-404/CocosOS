@@ -6,7 +6,6 @@ local function cargarDirectorio(ruta)
     rutaActual = ruta
     archivos = {}
     
-    -- Simular estructura de directorios
     if ruta == "/" then
         archivos = {
             {nombre = "cocosOS", tipo = "directorio", ruta = "/cocosOS"},
@@ -62,7 +61,7 @@ local function dibujarGUI()
 end
 
 local function detectarClicks(x, y)
-    -- Botón retroceso
+
     if x >= 70 and x <= 130 and y >= 140 and y <= 165 then
         if rutaActual ~= "/" then
             local padre = rutaActual:match("^(.*/)[^/]+/?$") or "/"

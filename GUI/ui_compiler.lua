@@ -1,24 +1,35 @@
 local json = require("dkjson")
+
 local f = io.open("GUI/UI.json", "r")
+if not f then error("No se pudo abrir UI.json") end
 local content = f:read("*a")
 f:close()
-local d = json.decode(content)
-local o = io.open("UI.c", "w")
-o:write("#include \"GUI/UILoader.h\"\n\n")
-o:write("unsigned int UI_BG = 0x"..d.color.background:sub(2)..";\n")
-o:write("unsigned int UI_PANEL = 0x"..d.color.panel:sub(2)..";\n")
-o:write("unsigned int UI_WINDOW = 0x"..d.color.window:sub(2)..";\n")
-o:write("unsigned int UI_ACCENT = 0x"..d.color.accent:sub(2)..";\n")
-o:write("unsigned int UI_TEXT = 0x"..d.color.text_primary:sub(2)..";\n")
-o:write("int PANEL_HEIGHT = "..d.panel.height..";\n")
-o:write("int WINDOW_RADIUS = "..d.window.border_radius..";\n")
-o:write("int DOCK_SIZE = "..d.dock.size..";\n")
-o:write("int ANIM_MS = "..d.animations.duration..";\n")
-o:write("int NOTIFY_POS = 3;\n")
-o:write("\nvoid load_ui_config() {\n")
-o:write("    ui_panel_pos = 0;\n")
-o:write("    ui_dock_magnify = 1;\n")
-o:write("    ui_blur = "..(d.effects.blur and "1" or "0")..";\n")
-o:write("    ui_transparency = "..(d.effects.transparency and "1" or "0")..";\n")
-o:write("}\n")
-o:close()
+
+local data = json.decode(content)
+local out = io.open("UI.c", "w")
+
+out:write("#include \"UI.h\"\n\n")
+
+out:write("const char* UI_BG = \"" .. data.color.background .. "\";\n")
+out:write("const char* UI_ACCENT = \"" .. data.color.accent .. "\";\n")
+out:write("const int PANEL_H = " .. data.panel.height .. ";\n\n")
+
+out:write("void init_ui_settings() {\n")
+out:write("    set_wallpaper(\"" .. data.wallpaper.path .. "\");\n")
+out:write("    set_cursor(\"" .. data.cursor.path .. "\", " .. data.cursor.size .. ");\n")
+out:write("}\n\n")
+
+if data.components then
+    out:write("void render_ui() {\n")
+    for i = 1, #data.components do
+        local c = data.components[i]
+        if c.type == "label" then
+            out:write("    draw_text(" .. (c.x or 0) .. ", " .. (c.y or 0) .. ", \"" .. (c.text or "") .. "\");\n")
+        elseif c.type == "button" then
+            out:write("    draw_button(" .. (c.x or 0) .. ", " .. (c.y or 0) .. ", " .. (c.w or 50) .. ", " .. (c.h or 20) .. ", \"" .. (c.text or "") .. "\");\n")
+        end
+    end
+    out:write("}\n")
+end
+
+out:close()

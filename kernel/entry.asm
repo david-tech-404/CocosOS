@@ -1,19 +1,8 @@
 bits 32
 global kernel_entry
 extern kernel_main
+
 kernel_entry:
-cli
-cld
-mov ax, 0x10
-mov ds, ax
-mov es, ax
-mov fs, ax
-mov gs, ax
-mov ss, ax
-mov esp, 0x90000
-push ebx
-push eax
-call kernel_main
-.hang:
-hlt
-jmp .hang
+    cli
+    call kernel_main
+    hlt

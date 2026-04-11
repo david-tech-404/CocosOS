@@ -1,10 +1,6 @@
-# Cocos OS
-
-An experimental and minimalist operating system.
-
 ## What is Cocos OS?
 
-Cocos OS is an experimental operating system focused on simplicity, modularity, and complete system control.
+CocosOS is a minimalist and experimental 32-bit operating system designed to revive old computers, but I'm working on a 64-bit version and plan to upload it to another repository within a month.
 
 It's designed as a laboratory of ideas, featuring integrated apps, a GUI like GNOME Shell with scripting in Lua 5.4.
 
@@ -33,13 +29,13 @@ This open-source project is currently maintained by a single person.
 
 ## Contributions
 
-Contributions are not yet open, but clear rules will be published once the project is well established.
+Contributions are open :D so read CONTRIBUTING.MD
 
 ## License
 
-The system core (such as /kernel, /core, /boot, etc.) is licensed under the GPLv3 license.
+The system kernel (such as /kernel, /core, /boot, etc.) is licensed under the GPLv3 license.
 
-The APIs, UI/GUI (also known as the graphical interface), and applications are licensed under the MIT license.
+The APIs, the UI/GUI (also known as the graphical user interface), and the apps are licensed under the MIT license.
 
 ## When will it be ready?
 
@@ -49,7 +45,38 @@ The code is already ready, which is why it's on GitHub.
 
 David (that's me) is the one who wrote all of this and who created the entire Cocos OS system.
 
-**You can simply call me David Tech or just David.**
+**You can just call me David Tech or just David**
+
+# How to compile the code
+Prerequisites:
+**Before compiling,**  **ensure you have the following tools installed:**
+
+NASM (Assembler)
+
+GCC (i686-elf cross-compiler recommended)
+
+Binutils (ld linker)
+
+Make (Build automation)
+
+QEMU (To run the OS)
+
+On Ubuntu/Debian: sudo apt install build-essential nasm qemu-system-x86 mtools
+
+Steps:
+
+1 Run: make
+
+Wait a long or short time depending on your computer
+
+2 (Optional for running a VM in QEMU) Run: make run
+
+Done! :D
+
+# Why I started this project
+For two reasons:
+1 - For complete privacy
+2 - So that the user can have more control
 
 ## Copyright
 

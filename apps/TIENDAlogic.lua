@@ -1,6 +1,7 @@
 local json = require("json")
 local TIENDA_PATH = "/TiendaApps/"
 local REPO_JSON = TIENDA_PATH .. "repo.json"
+
 local function cargarCPM()
     local f = io.open(REPO_JSON, "r")
     if not f then 
@@ -11,6 +12,7 @@ local function cargarCPM()
     local ok, parsed = pcall(json.decode, data)
     return ok and parsed or { apps = {}, last_updated = "", total_apps = 0 }
 end
+
 local function guardarCPM(data)
     local f = io.open(REPO_JSON, "w")
     if f then
@@ -18,6 +20,7 @@ local function guardarCPM(data)
         f:close()
     end
 end
+
 local function leerREPO()
     local f = io.open(REPO_JSON, "r")
     if not f then return {} end
@@ -26,6 +29,7 @@ local function leerREPO()
     local ok, repo = pcall(json.decode, data)
     return ok and repo or {}
 end
+
 local function guardarRepo(repo)
     local f = io.open(REPO_JSON, "w")
     if f then
@@ -33,6 +37,7 @@ local function guardarRepo(repo)
         f:close()
     end
 end
+
 local function instalarApp(nombreApp)
     local repo = leerREPO()
     local app = repo[nombreApp]
@@ -40,29 +45,36 @@ local function instalarApp(nombreApp)
         print("App no encontrada en la tienda:", nombreApp)
         return
     end
+
     local appPath = TIENDA_PATH .. nombreApp .. "/"
     os.execute("mkdir -p " .. appPath)
+
     local f = io.open(appPath .. "main.lua", "w")
     if f then
         f:write(app.code or "")
         f:close()
     end
+
     local metaF = io.open(appPath .. "meta.lua", "w")
     if metaF then
         metaF:write("return " .. json.encode(app))
         metaF:close()
     end
+
     print("app instalada:", nombreApp)
 end
+
 local function ejecutarComando(args)
     local cmd = args[1]
     local nombreApp = args[2]
+
     if cmd == "get" and nombreApp then
         instalarApp(nombreApp)
     else
         print("uso: root cpm get <nombre_app>")
     end
 end
+
 if arg and #arg > 0 then
     ejecutarComando(arg)
 else

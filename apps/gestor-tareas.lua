@@ -1,8 +1,7 @@
 local procesos = {}
 local seleccionado = nil
-local modoVista = "lista" -- lista, detalles
+local modoVista = "lista"
 
--- Procesos simulados del sistema
 local procesosSimulados = {
     {nombre = "kernel.lua", pid = 1, cpu = 2.5, memoria = 15, estado = "ejecutando", tipo = "sistema"},
     {nombre = "gui.lua", pid = 2, cpu = 5.2, memoria = 25, estado = "ejecutando", tipo = "sistema"},
@@ -85,15 +84,13 @@ local function terminarProceso(pid)
 end
 
 local function dibujarGUI()
-    -- Panel principal
+
     draw_panel(50, 50, 500, 450, "#2C2C2C", 0.95)
     draw_text(70, 70, "gestor de tareas", "#FFFFFF")
     
-    -- Estadísticas del sistema
     local cpuTotal, memoriaTotal, procesosActivos = calcularUsoTotal()
     draw_text(70, 95, "cpu: " .. string.format("%.1f%%", cpuTotal) .. " | memoria: " .. memoriaTotal .. "mb | procesos: " .. procesosActivos, "#CCCCCC")
     
-    -- Botones de control
     draw_panel(70, 115, 80, 25, "#4CAF50", 0.8)
     draw_text(80, 123, "actualizar", "#FFFFFF")
     
@@ -103,10 +100,8 @@ local function dibujarGUI()
     draw_panel(250, 115, 80, 25, "#00AEEF", 0.8)
     draw_text(260, 123, "detalles", "#FFFFFF")
     
-    -- Modo vista
     draw_text(360, 123, "vista: " .. modoVista, "#888888")
     
-    -- Encabezados de la tabla
     local yInicio = 150
     draw_panel(70, yInicio, 460, 20, "#333333", 0.9)
     draw_text(80, yInicio + 5, "nombre", "#FFFFFF")
@@ -116,7 +111,6 @@ local function dibujarGUI()
     draw_text(360, yInicio + 5, "estado", "#FFFFFF")
     draw_text(430, yInicio + 5, "tipo", "#FFFFFF")
     
-    -- Lista de procesos
     if #procesos == 0 then
         draw_text(70, yInicio + 30, "no hay procesos", "#888888")
     else
@@ -124,36 +118,28 @@ local function dibujarGUI()
             local y = yInicio + 25 + (i-1) * 30
             local colorFondo = seleccionado == i and "#4C4C4C" or (i % 2 == 0 and "#1A1A1A" or "#252525")
             
-            -- Fondo de fila
             draw_panel(70, y, 460, 25, colorFondo, 0.9)
             
-            -- Nombre del proceso
             local nombreCorto = proc.nombre
             if #nombreCorto > 15 then
                 nombreCorto = nombreCorto:sub(1, 12) .. "..."
             end
             draw_text(80, y + 5, nombreCorto, "#FFFFFF")
             
-            -- PID
             draw_text(200, y + 5, tostring(proc.pid), "#CCCCCC")
             
-            -- CPU
             draw_text(240, y + 5, string.format("%.1f", proc.cpu), "#CCCCCC")
             
-            -- Memoria
             draw_text(290, y + 5, tostring(proc.memoria), "#CCCCCC")
             
-            -- Estado
             local colorEstado = obtenerColorEstado(proc.estado)
             draw_text(360, y + 5, proc.estado, colorEstado)
             
-            -- Tipo
             local colorTipo = obtenerColorTipo(proc.tipo)
             draw_text(430, y + 5, proc.tipo, colorTipo)
         end
     end
     
-    -- Panel de detalles si hay selección
     if seleccionado and procesos[seleccionado] and modoVista == "detalles" then
         local proc = procesos[seleccionado]
         draw_panel(70, 380, 460, 100, "#3C3C3C", 0.95)
@@ -166,17 +152,17 @@ local function dibujarGUI()
 end
 
 local function detectarClicks(x, y)
-    -- Botón actualizar
+
     if x >= 70 and x <= 150 and y >= 115 and y <= 140 then
         cargarProcesos()
         draw_panel(150, 200, 200, 60, "#3C3C3C", 0.95)
         draw_text(170, 220, "procesos actualizados", "#4CAF50")
-    -- Botón terminar
+
     elseif x >= 160 and x <= 240 and y >= 115 and y <= 140 then
         if seleccionado and procesos[seleccionado] then
             terminarProceso(procesos[seleccionado].pid)
         end
-    -- Botón detalles
+
     elseif x >= 250 and x <= 330 and y >= 115 and y <= 140 then
         modoVista = modoVista == "lista" and "detalles" or "lista"
     end

@@ -23,7 +23,7 @@ You need these tools installed:
 
 On Linux you can install all dependencies automatically:
 ```
-sudo ./install_deps.sh
+sudo ./make.sh
 ```
 
 ## Supported Compilation Methods

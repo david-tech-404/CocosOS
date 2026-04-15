@@ -130,7 +130,7 @@ make run
 /shell            - System shell
 /terminal         - Text terminal
 /assets           - Images, fonts, resources
-/IA               - Shellby AI assistant
+/IA               - Shellby 'AI assistant'
 /installer        - OS Installer
 ```
 

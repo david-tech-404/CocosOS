@@ -5,6 +5,8 @@
 #include "events/event.h"
 #include "terminal.h"
 #include "blade.h"
+#include "drivers/net/nic.h"
+#include "drivers/wifi/wifi.h"
 
 static void kernel_stage2(void);
 static void kernel_run_userspace(void);
@@ -45,6 +47,10 @@ static void kernel_stage2(void)
     mm_init();
     fs_init();
     device_init();
+    
+    net_init();
+    wifi_init();
+    
     gui_init();
     lua_init();
 

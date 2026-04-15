@@ -80,7 +80,7 @@
       "id": "os_list",
       "items": [
         "Windows 10 (C:\\)",
-        "Linux Ubuntu (/dev/sda1)",
+        "Linux (/dev/sda1)",
         "Unallocated Space"
       ]
     },
@@ -108,7 +108,7 @@
       "x": 50,
       "y": 550,
       "id": "encrypt",
-      "text": "Enable disk encryption (LUKS)",
+      "text": "Enable disk encryption",
       "checked": false
     },
     {

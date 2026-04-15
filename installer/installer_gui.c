@@ -117,6 +117,10 @@ void start_installation() {
     sleep(1);
     update_progress(80, "Configuring system...");
     system("echo 'cocosos' > " INSTALL_DIR "/etc/hostname");
+    
+    char cmd[128];
+    snprintf(cmd, sizeof(cmd), "echo '%d' > " INSTALL_DIR "/etc/language", idioma_seleccionado);
+    system(cmd);
     sleep(1);
     update_progress(90, "Finalizing...");
     system("umount " INSTALL_DIR);
@@ -145,8 +149,38 @@ void render_installer_ui() {
     }
     draw_text(50, 450, "Encryption: LUKS (AES-256) available", "#cccccc", 12);
 }
+static char* idiomas[] = {"Español", "English", "Portugues", "Italiano", "Ruso", "Chino", "Japones", "Coreano", "Latin", "Developer Mode"};
+static int idioma_seleccionado = 0;
+
+void pantalla_idioma() {
+    int i;
+    draw_text(50, 120, "Seleccione idioma / Select language:", "#ffffff", 16);
+    for(i=0;i<10;i++) {
+        if(i == idioma_seleccionado) {
+            draw_text(50, 160 + i * 25, ">", "#e94560", 14);
+        }
+        draw_text(70, 160 + i * 25, idiomas[i], "#cccccc", 14);
+    }
+}
+
 int main() {
+    char input[32];
+    
     init_installer_ui();
+    
+    while(1) {
+        printf("\033[2J\033[H");
+        draw_text(50, 30, "CocosOS Installer v1.0.0", "#e94560", 24);
+        pantalla_idioma();
+        
+        printf("\n\nw = subir, s = bajar, ENTER = continuar: ");
+        fgets(input, sizeof(input), stdin);
+        
+        if(input[0] == 'w' && idioma_seleccionado > 0) idioma_seleccionado--;
+        if(input[0] == 's' && idioma_seleccionado < 9) idioma_seleccionado++;
+        if(input[0] == '\n') break;
+    }
+    
     os_count = detect_operating_systems(detected_os, MAX_OS_DETECTED);
     while (true) {
         printf("\033[2J\033[H");

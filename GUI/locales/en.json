@@ -1,24 +1,25 @@
 {
-    "app_photos": "photos",
-    "app_task_manager": "task manager",
-    "app_settings": "settings",
-    "app_terminal": "terminal",
-    "app_store": "store",
-    "app_calendar": "calendar",
-    "app_clock": "clock",
-
-    "action_open": "open",
-    "action_close": "Close",
-    "action_save": "save",
-    "action_cancel": "Cancel",
-    "action_exit": "exit",
-
-    "staus_ruuning": "running",
-    "status_stopped": "stopped",
-
-    "label_language": "language",
-    "label_theme": "Theme",
-    "label_live_mode": "live mode",
-
-    "msg_welcome": "welcome to Cocos OS"
+  "system.welcome": "Welcome to Cocos OS",
+  "system.shutdown": "Shutting down...",
+  "system.reboot": "Restarting...",
+  "menu.programs": "Programs",
+  "menu.settings": "Settings",
+  "menu.files": "Files",
+  "filemanager.name": "File Manager",
+  "texteditor.name": "Text Editor",
+  "calculator.name": "Calculator",
+  "calendar.name": "Calendar",
+  "terminal.name": "Terminal",
+  "settings.language": "Language",
+  "settings.wallpaper": "Wallpaper",
+  "settings.datetime": "Date and Time",
+  "settings.about": "About",
+  "wifi.title": "Wifi Networks",
+  "wifi.scanning": "Scanning networks...",
+  "wifi.connecting": "Connecting...",
+  "wifi.connected": "Connected",
+  "button.ok": "OK",
+  "button.cancel": "Cancel",
+  "button.save": "Save",
+  "button.delete": "Delete"
 }

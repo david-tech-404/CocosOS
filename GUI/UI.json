@@ -12,13 +12,13 @@
   },
   "font": {
     "family": "Inter",
-    "regular": "GUI/fonts/inter font/Inter-Regular.ttf",
-    "bold": "GUI/fonts/inter font/InterDisplay-bold.ttf",
+    "regular": "assets/fonts/inter font/Inter-Regular.ttf",
+    "bold": "assets/fonts/inter font/InterDisplay-bold.ttf",
     "size": 14
   },
   "font_mono": {
     "family": "JetBrains Mono",
-    "file": "fonts/JetBrainsMonoNL/JetBrainsMonoNL-Regular.ttf",
+    "file": "assets/fonts/JetBrainsMonoNL/JetBrainsMonoNL-Regular.ttf",
     "size": 13
   },
   "panel": {

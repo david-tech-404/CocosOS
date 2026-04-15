@@ -1,6 +1,7 @@
 #include "terminal.h"
 #include "Display.h"
 #include "keyboard.h"
+#include "../shell/shell.h"
 
 char input_buffer[256];
 int input_index = 0;
@@ -27,6 +28,7 @@ void terminal_input(char c) {
     if (c == '\n') {
         input_buffer[input_index] = 0;
         terminal_write("\n");
+        shell_execute(input_buffer);
         input_index = 0;
         terminal_prompt();
         return;

@@ -5,7 +5,8 @@ local fallback = {}
 local lang = "en"
 
 function i18n.load(new_lang0)
-    lang = new_lang or "en"
+    -- Forzado idioma Inglés por defecto permanente
+    lang = "en"
 
     fallback = json_decode(read_file("locales/intl.json"))
 

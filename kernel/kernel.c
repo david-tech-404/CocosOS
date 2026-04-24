@@ -14,14 +14,18 @@ static void kernel_run_userspace(void);
 void kernel_main(void)
 {
     uint8_t buffer[512];
-    disk_read_sector(0, buffer);
+    int read_status = disk_read_sector(0, buffer);
+    if(read_status != 0) {
+        log_error("Fallo al leer sector de disco, codigo de error: %d", read_status);
+        internal_error_handler();
+    }
 
     display_clear();
     int pos = 0;
     
     event_init();
     blade_init();
-    display_print("cocos OS iniciado");
+    display_print("cocos OS iniciado", 0);
     
     log_init();
     log_info("Kernel iniciado");

@@ -1,6 +1,5 @@
 #ifndef EVENT_H
-
-#define EVENT_T
+#define EVENT_H
 
 #include <stdint.h>
 

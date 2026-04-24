@@ -22,7 +22,7 @@ void runtime_run_lua_app(const char* file) {
     lua_close(L);
 }
 
-void runtime_run_apps(); {
+void runtime_run_apps() {
     for(int i =0; i<app_count; i++) {
         if(apps[i].init)apps[i].init();
     }

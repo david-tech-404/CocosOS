@@ -59,7 +59,8 @@ int vfs_write(const char *name, const uint8_t *data, uint32_t size) {
 
 int vfs_read(const char *name, uint8_t *buffer, uint32_t size) {
     vfs_node_t *node = vfs_find(name);
-    if (!node || !buffer) return 0;  
+    if (!node || !buffer) return 0;
+    if (!node->data) return 0;
     if (size > node->size) {
         size = node->size;
     }

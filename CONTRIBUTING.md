@@ -66,9 +66,7 @@ sudo ./make.sh
 
 Use this format:
 ```
-area: short description
-
-Optional longer description of what changed and why.
+bro ahh commit bad 
 ```
 
 Valid areas:
@@ -92,10 +90,7 @@ Valid areas:
 ## Things that will get your PR rejected immediately
 
 - Containing emoji
-- Code that only works on one operating system
 - Unnecessary changes to existing working code
-- Large commits that change multiple things
-- No description
 - Code that prints debug output to terminal
 - Commits that only fix whitespace
 - Using malloc/free instead of kernel memory functions

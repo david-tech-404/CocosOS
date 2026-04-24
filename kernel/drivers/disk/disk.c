@@ -32,7 +32,7 @@ int disk_read_sector(uint32_t lba, uint8_t *buffer) {
     outb(ATA_SECTOR_COUNT, 1);
 
     outb(ATA_LBA_LOW, (uint8_t)lba);
-    outb(ATA_LBA_MIB, (uint8_t)(lba >> 8));
+    outb(ATA_LBA_MID, (uint8_t)(lba >> 8));
 
     outb(ATA_LBA_HIGH, (uint8_t)(lba >> 16));
 
@@ -41,7 +41,7 @@ int disk_read_sector(uint32_t lba, uint8_t *buffer) {
     ata_wait();
 
     for (int i = 0; i < 256; i++) {
-        ((uint16_t*)buffer)[i] = inw[ATA_DATA];
+        ((uint16_t*)buffer)[i] = inw(ATA_DATA);
     }
 
     return 1;

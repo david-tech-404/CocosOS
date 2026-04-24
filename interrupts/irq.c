@@ -1,7 +1,7 @@
 #include "irq.h"
-#include "timer.h"
-#include "pic.h"
-#include "scheduler.h"
+#include "../timer/timer.h"
+#include "../PIC/pic.h"
+#include "../scheduler/scheduler.h"
 
 void irq0_handler_c(void) {
     scheduler_tick();

@@ -1,7 +1,7 @@
 #ifndef FS_H
 #define FS_H
 
-#define MAX_FLIES 32
+#define MAX_FILES 32
 #define MAX_FILENAME 32
 #define MAX_FILE_SIZE 1024
 

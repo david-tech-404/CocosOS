@@ -20,7 +20,7 @@ The technologies used in Cocos OS are quite simple:
 
 ## The Author and Maintenance
 
-Main Maintainer: David Fernández (God willing, Corralejo)
+Main Maintainer: David Fernández (insha'allah Corralejo)
 
 This open-source project is currently maintained by a single person.
 

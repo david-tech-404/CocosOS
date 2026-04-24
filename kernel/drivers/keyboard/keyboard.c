@@ -3,15 +3,12 @@
 #include "event.h"
 #include <stdint.h>
 
-event_t e;
-
-e.type = EVENT_KEY;
-e.data1 = scancode;
-e.data2 = 0;
-
-event_push(e);
-
 void keyboard_irq_handler(uint8_t scancode) {
+    event_t ev;
+    ev.type = EVENT_KEY;
+    ev.data1 = scancode;
+    ev.data2 = 0;
+    event_push(ev);
 
     input_event_t e;
     e.type = INPUT_KEYBOARD;

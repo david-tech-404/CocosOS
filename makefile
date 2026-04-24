@@ -29,7 +29,7 @@ CFLAGS      = -ffreestanding -O2 -Wall -Wextra -nostdlib -nostartfiles -I. -Iker
 ASFLAGS     = -f elf32
 LDFLAGS    += -T kernel/linker.ld --oformat binary
 
-C_SRC       = $(wildcard kernel/*.c) $(wildcard kernel/memory/*.c) $(wildcard kernel/drivers/*.c) $(wildcard kernel/events/*.c) $(wildcard kernel/input/*.c) $(wildcard kernel/logs/*.c) $(wildcard filesystem/*.c) $(wildcard IDT/*.c) $(wildcard interrupts/*.c) $(wildcard PIC/*.c) $(wildcard timer/*.c) $(wildcard scheduler/*.c) $(wildcard process_manager/*.c) $(wildcard IPC/*.c) $(wildcard terminal/*.c) $(wildcard shell/*.c) $(wildcard blade/*.c) $(wildcard core/*.c) $(wildcard runtime/*.c) $(wildcard installer/*.c)
+C_SRC       = $(wildcard kernel/*.c) $(wildcard kernel/memory/*.c) $(wildcard kernel/drivers/*/*.c) $(wildcard kernel/events/*.c) $(wildcard kernel/input/*.c) $(wildcard kernel/logs/*.c) $(wildcard filesystem/*.c) $(wildcard IDT/*.c) $(wildcard interrupts/*.c) $(wildcard PIC/*.c) $(wildcard timer/*.c) $(wildcard scheduler/*.c) $(wildcard process_manager/*.c) $(wildcard IPC/*.c) $(wildcard terminal/*.c) $(wildcard shell/*.c) $(wildcard blade/*.c) $(wildcard core/*.c) $(wildcard runtime/*.c) $(wildcard installer/*.c)
 ASM_SRC     = $(wildcard boot/*.asm) $(wildcard kernel/*.asm) $(wildcard IDT/*.asm) $(wildcard interrupts/*.asm) $(wildcard PIC/*.asm) $(wildcard scheduler/*.asm)
 OBJ         = $(C_SRC:.c=.o) $(ASM_SRC:.asm=.o)
 

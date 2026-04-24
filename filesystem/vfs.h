@@ -1,7 +1,9 @@
 #ifndef VFS_H
-#define VSF_H
+#define VFS_H
 
 #include <stdint.h>
+
+#define MAX_NAME 32
 
 typedef struct vfs_node {
     char name[32];
@@ -12,7 +14,7 @@ typedef struct vfs_node {
 
 void vfs_init();
 int vfs_create(const char *name);
-int vfs_write(const char *name, const uint8_t *data, *name, const uint32_t size);
+int vfs_write(const char *name, const uint8_t *data, uint32_t size);
 int vfs_read(const char *name, uint8_t *buffer, uint32_t size);
 
 #endif

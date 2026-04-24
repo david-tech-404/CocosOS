@@ -81,11 +81,7 @@ Valid areas:
 
 ## Pull Request Rules
 
-1. One feature / bug fix per pull request
-2. No merge commits, rebase on main
-3. All existing tests must pass
-4. PR description explains what and why
-5. Screenshots are required for GUI changes
+They just don't make my mistakes, or they might, but it's not recommended.
 
 ## Things that will get your PR rejected immediately
 
@@ -93,7 +89,7 @@ Valid areas:
 - Unnecessary changes to existing working code
 - Code that prints debug output to terminal
 - Commits that only fix whitespace
-- Using malloc/free instead of kernel memory functions
+- Using malloc
 
 ## Testing
 
@@ -127,6 +123,7 @@ make run
 /assets           - Images, fonts, resources
 /IA               - Shellby 'AI assistant'
 /installer        - OS Installer
+/cpm              - Cocos Package manager
 ```
 
 If you have questions open an issue first.

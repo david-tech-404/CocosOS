@@ -4,6 +4,8 @@ CocosOS is a minimalist and experimental 32-bit operating system designed to rev
 
 It's designed as a laboratory of ideas, featuring integrated apps, a GUI like GNOME Shell with scripting in Lua 5.4.
 
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/david-tech-404/CocosOS)
+
 ## Cocos OS Status
 
 Status: Under development, not very active; it's not a production-ready system; it's in beta or alpha.

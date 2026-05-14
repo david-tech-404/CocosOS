@@ -83,9 +83,8 @@ Valid areas:
 
 They just don't make my mistakes, or they might, but it's not recommended.
 
-## Things that will get your PR rejected immediately
+## Things that will cause your withdrawal request to be rejected, but not entirely, since almost everyone can make these mistakes, so it can't be rejected completely.
 
-- Containing emoji
 - Unnecessary changes to existing working code
 - Code that prints debug output to terminal
 - Commits that only fix whitespace
